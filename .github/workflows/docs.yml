@@ -23,6 +23,9 @@ jobs:
           python-version: 3.x
       - run: pip install zensical
       - run: zensical build --clean
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
 
   deploy:
     environment:
@@ -31,8 +34,5 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/upload-pages-artifact@v4
-        with:
-          path: site
       - uses: actions/deploy-pages@v4
         id: deployment
