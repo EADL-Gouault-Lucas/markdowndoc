@@ -9,10 +9,10 @@ permissions:
   pages: write
   id-token: write
 jobs:
-  deploy:
+  build:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.build.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/configure-pages@v5
@@ -22,6 +22,13 @@ jobs:
           python-version: 3.x
       - run: pip install zensical
       - run: zensical build --clean
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/upload-pages-artifact@v4
         with:
           path: site

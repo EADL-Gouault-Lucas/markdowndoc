@@ -1,0 +1,34 @@
+body {
+    font: Garamond !important;
+}
+
+p, li, h1, h2, h3, h4, h5, h6, div, span {
+    animation: rotate 5s infinite linear;
+    transition: transform 1s ease-in-out;
+    will-change: transform;
+}
+
+p:hover, li:hover, h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover, div:hover, span:hover {
+    animation-name: unrotate;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        transform: matrix()
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes unrotate {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
