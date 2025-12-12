@@ -4,6 +4,7 @@ on:
     branches:
       - master
       - main
+      - chaos
 permissions:
   contents: read
   pages: write
